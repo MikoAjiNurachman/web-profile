@@ -1,9 +1,9 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion"
 
 const navItems = [
   { href: "#home", label: "Home" },
@@ -22,11 +22,10 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 8)
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  // Motion's useScroll batches scroll reads outside the render cycle
+  // (no raw window scroll listener).
+  const { scrollY } = useScroll()
+  useMotionValueEvent(scrollY, "change", (latest) => setIsScrolled(latest > 8))
 
   return (
     <>

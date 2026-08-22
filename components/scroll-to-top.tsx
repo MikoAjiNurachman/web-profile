@@ -1,19 +1,18 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { ArrowUp } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useScroll, useMotionValueEvent } from "framer-motion"
 
 // Apple icon-circular button — 44px target, translucent chip on the bottom-
 // right. Visible once scrolled past 300px.
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false)
 
-  useEffect(() => {
-    const toggleVisibility = () => setIsVisible(window.scrollY > 300)
-    window.addEventListener("scroll", toggleVisibility, { passive: true })
-    return () => window.removeEventListener("scroll", toggleVisibility)
-  }, [])
+  // Motion's useScroll batches scroll reads (no raw window scroll listener).
+  const { scrollY } = useScroll()
+  useMotionValueEvent(scrollY, "change", (latest) => setIsVisible(latest > 300))
 
   return (
     <button

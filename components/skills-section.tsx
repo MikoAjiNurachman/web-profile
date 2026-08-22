@@ -58,9 +58,6 @@ export function SkillsSection() {
         variants={stagger}
       >
         <motion.div variants={fadeUp} className="mb-14 md:mb-20 max-w-[720px]">
-          <p className="type-eyebrow text-[var(--apple-ink-muted-48)] mb-4">
-            Loadout · 03
-          </p>
           <h2 className="type-display-lg text-[var(--apple-ink)] mb-5">
             Technical arsenal.
           </h2>
@@ -82,10 +79,10 @@ export function SkillsSection() {
                       {skill.name}
                     </span>
                     <div className="flex items-center gap-3">
-                      {/* Proficiency bar — single Action Blue, no gradient. */}
-                      <div className="h-1 w-24 sm:w-28 bg-[var(--apple-divider-soft)] rounded-full overflow-hidden">
+                      {/* Proficiency: thin filled line only, no background track. */}
+                      <div className="h-[3px] w-24 sm:w-28">
                         <div
-                          className="h-full bg-[var(--apple-primary)] rounded-full"
+                          className="h-full bg-[var(--apple-primary)]"
                           style={{ width: `${skill.level}%` }}
                         />
                       </div>

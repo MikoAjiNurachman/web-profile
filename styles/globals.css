@@ -162,6 +162,17 @@
   [role="button"]:focus, [role="button"]:focus-visible {
     outline: none;
   }
+  /* Keyboard focus stays visible: a clean 2px action-blue ring on
+     :focus-visible only. Mouse clicks (:focus) remain halo-free. */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--apple-primary);
+    outline-offset: 3px;
+  }
   html, body { overflow-x: clip; }
   html {
     height: 100%;
@@ -312,10 +323,9 @@ html { scroll-behavior: smooth; }
 }
 .btn-pill:hover { background: var(--apple-primary-focus); }
 .btn-pill:active { transform: scale(0.96); }
-/* All focus / focus-visible states are explicitly stripped — no halo, no
-   outline, no box-shadow under any pseudo-class. User-requested clean look. */
+/* Mouse-click focus stays clean; keyboard :focus-visible keeps its ring
+   from the base :focus-visible rule above. */
 .btn-pill:focus,
-.btn-pill:focus-visible,
 .btn-pill:focus-within { outline: none !important; box-shadow: none !important; }
 
 .btn-pill-ghost {
@@ -344,7 +354,6 @@ html { scroll-behavior: smooth; }
 .btn-pill-ghost:hover { background: var(--apple-primary); color: var(--apple-on-dark); }
 .btn-pill-ghost:active { transform: scale(0.96); }
 .btn-pill-ghost:focus,
-.btn-pill-ghost:focus-visible,
 .btn-pill-ghost:focus-within { outline: none !important; box-shadow: none !important; }
 
 .tile-dark .btn-pill-ghost,
@@ -382,7 +391,6 @@ html { scroll-behavior: smooth; }
 .btn-dark-utility:hover { background: #000; }
 .btn-dark-utility:active { transform: scale(0.96); }
 .btn-dark-utility:focus,
-.btn-dark-utility:focus-visible,
 .btn-dark-utility:focus-within { outline: none !important; box-shadow: none !important; }
 
 .btn-icon-circular {
@@ -407,7 +415,6 @@ html { scroll-behavior: smooth; }
 .btn-icon-circular:hover { background: rgba(210, 210, 215, 0.85); }
 .btn-icon-circular:active { transform: scale(0.96); }
 .btn-icon-circular:focus,
-.btn-icon-circular:focus-visible,
 .btn-icon-circular:focus-within { outline: none !important; box-shadow: none !important; }
 
 .text-link-apple {
@@ -485,6 +492,19 @@ body::-webkit-scrollbar,
 }
 .animate-apple-fade-up { animation: apple-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
+/* ───── Reduced motion — collapse all CSS animation to near-instant. */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
 /* ───── Final defense — kill every possible source of a button halo.
    Placed at end of file so source order gives this highest precedence over
    any leaked Tailwind utility, shadcn cva, or browser default. */
@@ -501,31 +521,31 @@ button,
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Mouse-triggered focus stays halo-free. Keyboard :focus-visible is
+   deliberately NOT in this list, so the base focus-visible ring survives. */
 button:hover,
 button:focus,
-button:focus-visible,
 button:focus-within,
 button:active,
 [type="button"]:hover,
 [type="button"]:focus,
-[type="button"]:focus-visible,
+[type="button"]:focus-within,
 [type="submit"]:hover,
 [type="submit"]:focus,
-[type="submit"]:focus-visible,
+[type="submit"]:focus-within,
 .btn-pill:hover,
 .btn-pill:focus,
-.btn-pill:focus-visible,
 .btn-pill:focus-within,
 .btn-pill:active,
 .btn-pill-ghost:hover,
 .btn-pill-ghost:focus,
-.btn-pill-ghost:focus-visible,
+.btn-pill-ghost:focus-within,
 .btn-dark-utility:hover,
 .btn-dark-utility:focus,
-.btn-dark-utility:focus-visible,
+.btn-dark-utility:focus-within,
 .btn-icon-circular:hover,
 .btn-icon-circular:focus,
-.btn-icon-circular:focus-visible {
+.btn-icon-circular:focus-within {
   outline: none !important;
   box-shadow: none !important;
   -webkit-tap-highlight-color: transparent;

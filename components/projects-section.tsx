@@ -1,6 +1,5 @@
 "use client"
 
-import { ArrowUpRight } from "lucide-react"
 import { motion } from "framer-motion"
 
 const fadeUp = {
@@ -60,48 +59,47 @@ export function ProjectsSection() {
         variants={stagger}
       >
         <motion.div variants={fadeUp} className="mb-14 md:mb-20 max-w-[720px]">
-          <p className="type-eyebrow text-[var(--apple-ink-muted-48)] mb-4">
-            Work · 04
-          </p>
           <h2 className="type-display-lg text-[var(--apple-ink)] mb-5">
             Selected engineering works.
           </h2>
           <p className="type-lead-airy text-[var(--apple-ink-muted-80)]">
             Systems architecture, middleware integration, and frontend experiences.
-            Most are private enterprise — what&apos;s listed is the role and the stack.
+            Most are private enterprise. What&apos;s listed is the role and the stack.
           </p>
         </motion.div>
 
-        <motion.div variants={stagger} className="grid md:grid-cols-2 gap-4 md:gap-5">
+        {/* Single-column list rows, hairline dividers: a different layout
+            family from the skills card grid above. */}
+        <motion.div variants={stagger} className="divide-y divide-[var(--apple-hairline)] border-y border-[var(--apple-hairline)]">
           {projects.map((project, index) => (
             <motion.article
               key={index}
               variants={fadeUp}
-              className="card-utility !p-7 md:!p-8 flex flex-col"
+              className="py-8 md:py-12 grid md:grid-cols-[1fr_1.5fr] gap-5 md:gap-12 items-start"
             >
-              <h3 className="type-display-md text-[var(--apple-ink)] mb-3">
-                {project.title}
-              </h3>
-              <p className="type-body-apple text-[var(--apple-ink-muted-80)] mb-6 flex-grow">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="type-caption text-[var(--apple-ink-muted-80)] bg-[var(--apple-parchment)] px-3 py-1 rounded-full"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <div>
+                <h3 className="type-display-md text-[var(--apple-ink)] mb-4">
+                  {project.title}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="type-caption text-[var(--apple-ink-muted-80)] bg-[var(--apple-parchment)] px-3 py-1 rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              <div className="flex items-center gap-5 pt-5 border-t border-[var(--apple-divider-soft)]">
-                <span className="type-caption text-[var(--apple-ink-muted-48)] inline-flex items-center gap-1">
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                  Private enterprise · closed source
-                </span>
+              <div>
+                <p className="type-body-apple text-[var(--apple-ink-muted-80)] mb-4">
+                  {project.description}
+                </p>
+                <p className="type-caption text-[var(--apple-ink-muted-48)]">
+                  Private enterprise, closed source
+                </p>
               </div>
             </motion.article>
           ))}

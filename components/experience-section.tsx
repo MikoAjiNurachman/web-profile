@@ -19,7 +19,7 @@ const experiences = [
   {
     title: "Middleware Developer",
     company: "PT. Bank CIMB Niaga Tbk",
-    period: "Feb 2025 — Present",
+    period: "Feb 2025 - Present",
     description: [
       "Architecting enterprise middleware solutions connecting modern digital channels to core banking mainframes.",
       "Developing high-performance integration flows using IBM ACE (App Connect Enterprise) and MQ.",
@@ -31,7 +31,7 @@ const experiences = [
   {
     title: "Software Developer",
     company: "PT. Bringin Inti Teknologi (BIT)",
-    period: "Oct 2024 — Feb 2025",
+    period: "Oct 2024 - Feb 2025",
     description: [
       "Engineered a real-time Fraud Detection System to filter and monitor suspicious banking transactions.",
       "Built a rule-based engine for rapid risk assessment and transaction analysis across various payment gateways.",
@@ -42,7 +42,7 @@ const experiences = [
   {
     title: "Software Engineer",
     company: "PT. Paramadaksa Teknologi Nusantara (nexSOFT)",
-    period: "Sep 2020 — Sep 2024",
+    period: "Sep 2020 - Sep 2024",
     description: [
       "Led the development of scalable microservices for a large-scale FMCG distribution platform.",
       "Optimized system performance using Redis caching and RabbitMQ message brokering.",
@@ -71,9 +71,6 @@ export function ExperienceSection() {
         variants={stagger}
       >
         <motion.div variants={fadeUp} className="mb-14 md:mb-20 max-w-[720px]">
-          <p className="type-eyebrow text-[var(--apple-on-dark-muted)] mb-4">
-            Timeline · 02
-          </p>
           <h2 className="type-display-lg text-white mb-5">
             Professional journey.
           </h2>

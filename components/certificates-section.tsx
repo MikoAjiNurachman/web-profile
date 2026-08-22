@@ -64,9 +64,6 @@ export function CertificatesSection() {
         variants={stagger}
       >
         <motion.div variants={fadeUp} className="mb-14 md:mb-20 max-w-[720px]">
-          <p className="type-eyebrow text-[var(--apple-on-dark-muted)] mb-4">
-            Credentials · 05
-          </p>
           <h2 className="type-display-lg text-white mb-5">
             Certificates and continuous learning.
           </h2>

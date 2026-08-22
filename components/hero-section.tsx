@@ -1,7 +1,6 @@
 "use client"
 
 import { Canvas, useThree } from "@react-three/fiber"
-import { ChevronDown } from "lucide-react"
 import { Suspense } from "react"
 import * as THREE from "three"
 import { motion } from "framer-motion"
@@ -75,7 +74,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="tile-light relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center pt-16"
+      className="tile-light relative w-full min-h-[100dvh] overflow-hidden flex flex-col items-center justify-center pt-16"
     >
       {/* 3D character canvas — full-bleed background. Characters flank the
           centered text at world x = ±3.x. Both are visible above the fold on
@@ -123,17 +122,6 @@ export function HeroSection() {
         </motion.div>
       </motion.div>
 
-      {/* Quiet "scroll" hint, Apple style — small chevron, no drama. */}
-      <a
-        href="#about"
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-[var(--apple-ink-muted-48)] hover:text-[var(--apple-primary)] transition-colors"
-        aria-label="Scroll to about"
-      >
-        <ChevronDown size={18} strokeWidth={1.5} />
-      </a>
-
-      {/* Hairline divider into the next tile. */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-[var(--apple-hairline)] z-10" />
     </section>
   )
 }

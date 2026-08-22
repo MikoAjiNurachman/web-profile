@@ -104,7 +104,7 @@ export function AboutSection() {
           {/* Content — Apple hierarchy: eyebrow → display-lg → body → stats */}
           <div className="order-1 lg:order-2">
             <motion.p variants={fadeUp} className="type-eyebrow text-[var(--apple-ink-muted-48)] mb-4">
-              Profile · 01
+              Profile
             </motion.p>
 
             <motion.h2 variants={fadeUp} className="type-display-lg text-[var(--apple-ink)] mb-6">
@@ -124,13 +124,13 @@ export function AboutSection() {
                 My toolkit blends <span className="text-[var(--apple-ink)] font-semibold">Go</span>,{" "}
                 <span className="text-[var(--apple-ink)] font-semibold">React.js</span>, and{" "}
                 IBM Integration Middleware with LLM-driven workflows, agentic tooling,
-                and AI-assisted code generation — building mission-critical bridges
+                and AI-assisted code generation. Building mission-critical bridges
                 between modern microservices, legacy cores, and emerging AI capabilities.
               </p>
 
               <p className="type-lead-airy text-[var(--apple-ink)] pt-2">
-                “The message is always right, but the application must be resilient —
-                and the model only as good as the system around it.”
+                “The message is always right, but the application must be resilient.
+                The model is only as good as the system around it.”
               </p>
             </motion.div>
 

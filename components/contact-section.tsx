@@ -73,7 +73,7 @@ export function ContactSection() {
       >
         <motion.div variants={fadeUp} className="mb-14 md:mb-20 max-w-[820px]">
           <p className="type-eyebrow text-[var(--apple-ink-muted-48)] mb-4">
-            Contact · 06
+            Contact
           </p>
           <h2 className="type-display-lg text-[var(--apple-ink)] mb-5">
             Let&apos;s connect.
@@ -203,7 +203,7 @@ export function ContactSection() {
                 {submitStatus === "success" ? (
                   <>
                     <CheckCircle className="w-5 h-5 shrink-0" />
-                    Message sent — I&apos;ll get back to you as soon as possible.
+                    Message sent. I&apos;ll get back to you as soon as possible.
                   </>
                 ) : (
                   <>

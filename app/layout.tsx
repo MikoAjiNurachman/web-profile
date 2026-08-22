@@ -1,5 +1,6 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
+import { MotionProvider } from "@/components/motion-provider"
 import { Inter, JetBrains_Mono } from "next/font/google"
 import "../styles/globals.css" // Changed to match local style path preference
 
@@ -46,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
-        {children}
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   )
